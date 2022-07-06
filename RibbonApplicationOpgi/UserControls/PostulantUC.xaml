@@ -1,0 +1,116 @@
+﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RibbonApplicationOpgi.UserControls"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  
+             xmlns:Model="clr-namespace:RibbonApplicationOpgi.Model"  
+             x:Class="RibbonApplicationOpgi.UserControls.PostulantUC"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <dxlc:LayoutControl>
+            <dxlc:LayoutGroup Orientation="Vertical">
+                <dxlc:LayoutGroup Header="LayoutGroup" View="GroupBox" HorizontalAlignment="Stretch">
+                    <dxlc:LayoutGroup Orientation="Vertical">
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Id" >
+                                <dxe:TextEdit x:Name="IdItem" IsReadOnly="True"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Réferance" >
+                                <dxe:TextEdit x:Name="RefItem"/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Valide">
+                                <dxe:TextEdit x:Name="ValidItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Date demande">
+                                <dxe:DateEdit x:Name="DateDemandeItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Programme">
+                                <dxe:ComboBoxEdit x:Name="ProgrammeListItem"/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Nom">
+                                <dxe:TextEdit Text=""/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Nom JF">
+                                <dxe:TextEdit x:Name="NomJfItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Prénom">
+                                <dxe:TextEdit x:Name="PrenomItem"/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Sexe">
+                                <dxe:TextEdit x:Name="SexeItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Date naissance">
+                                <dxe:DateEdit x:Name="DateNaissanceItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Type date naissance">
+                                <dxe:TextEdit x:Name="TypeDateNaissanceItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Lieu de naissance">
+                                <dxe:TextEdit x:Name="LieuNaissanceItem"/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Prénom père"   >
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Nom Mère">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Prénom mère">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Nom Conjoint">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Prénom Conjoint">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Date naissance">
+                                <dxe:DateEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="type date naissace">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Lieu de naissance">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                        <dxlc:LayoutGroup Orientation="Horizontal">
+                            <dxlc:LayoutItem Label="Prénom père conj">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Nom mère conj">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Label="Prénom mère conj">
+                                <dxe:TextEdit/>
+                            </dxlc:LayoutItem>
+                        </dxlc:LayoutGroup>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Header="LayoutGroup" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <dxg:GridControl x:Name="gridControl" AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True">
+                        <dxg:GridControl.View>
+                            <dxg:TableView/>
+                        </dxg:GridControl.View>
+                    </dxg:GridControl>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+
+    </Grid>
+</UserControl>
