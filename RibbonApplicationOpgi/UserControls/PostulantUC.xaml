@@ -1,4 +1,4 @@
-﻿<UserControl xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
              xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -32,6 +32,9 @@
                             </dxlc:LayoutItem>
                             <dxlc:LayoutItem Label="Programme">
                                 <dxe:ComboBoxEdit x:Name="ProgrammeListItem"/>
+                            </dxlc:LayoutItem>
+                            <dxlc:LayoutItem Width="40">
+                                <dx:SimpleButton Content="..." HorizontalAlignment="Right" VerticalAlignment="Stretch" Click="SimpleButton_Click"/>
                             </dxlc:LayoutItem>
                         </dxlc:LayoutGroup>
                         <dxlc:LayoutGroup Orientation="Horizontal">

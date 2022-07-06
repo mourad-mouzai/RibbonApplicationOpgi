@@ -17,17 +17,17 @@
                 <dxr:RibbonPage x:Name="PostulantRibbonPage" Caption="Postulant">
                     <dxr:RibbonPageGroup Caption="Citoyen">
                         <dxb:BarButtonItem Content="Ajouter" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Add.svg}" RibbonStyle="Large"/>
-                        <dxb:BarButtonItem Content="Editer" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Edit.svg}" RibbonStyle="Large"/>
-                        <dxb:BarButtonItem Content="Supprimer" Glyph="{dx:DXImage SvgImages/DiagramIcons/del.svg}" RibbonStyle="Large"/>
+                        <dxb:BarButtonItem x:Name="PostulantUpdateBtn" Content="Editer" Glyph="{dx:DXImage SvgImages/Icon Builder/Actions_Edit.svg}" RibbonStyle="Large" ItemClick="PostulantUpdateBtn_ItemClick"/>
+                        <dxb:BarButtonItem x:Name="PostulantDeleteBtn" Content="Supprimer" Glyph="{dx:DXImage SvgImages/DiagramIcons/del.svg}" RibbonStyle="Large" ItemClick="PostulantDeleteBtn_ItemClick"/>
                         <dxb:BarButtonItem Content="Rechercher" Glyph="{dx:DXImage SvgImages/HybridDemoIcons/Editors/HybridDemo_Search Button.svg}" RibbonStyle="Large"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="Edition">
-                        <dxb:BarButtonItem Content="Exportation Excel" Glyph="{dx:DXImage SvgImages/Export/ExportToXLS.svg}" RibbonStyle="Large"/>
-                        <dxb:BarButtonItem Content="Exportation PDF" Glyph="{dx:DXImage SvgImages/DiagramIcons/ExportToPdf.svg}" RibbonStyle="Large"/>
+                        <dxb:BarButtonItem x:Name="PostulantXlsxBtn" Content="Exportation Excel" Glyph="{dx:DXImage SvgImages/Export/ExportToXLS.svg}" RibbonStyle="Large" ItemClick="PostulantXlsxBtn_ItemClick"/>
+                        <dxb:BarButtonItem x:Name="PostulantPdfBtn" Content="Exportation PDF" Glyph="{dx:DXImage SvgImages/DiagramIcons/ExportToPdf.svg}" RibbonStyle="Large" ItemClick="PostulantPdfBtn_ItemClick"/>
                     </dxr:RibbonPageGroup>
                     <dxr:RibbonPageGroup Caption="Impression">
-                        <dxb:BarButtonItem Content="Aperçu" Glyph="{dx:DXImage SvgImages/DiagramIcons/ShowPrintPreview.svg}" RibbonStyle="Large"/>
-                        <dxb:BarButtonItem Content="Impression" Glyph="{dx:DXImage SvgImages/Dashboards/Print.svg}" RibbonStyle="Large"/>
+                        <dxb:BarButtonItem x:Name="PostulantPrintPreviewBtn" Content="Aperçu" Glyph="{dx:DXImage SvgImages/DiagramIcons/ShowPrintPreview.svg}" RibbonStyle="Large" ItemClick="PostulantPrintPreviewBtn_ItemClick"/>
+                        <dxb:BarButtonItem x:Name="PostulantPrintBtn" Content="Impression" Glyph="{dx:DXImage SvgImages/Dashboards/Print.svg}" RibbonStyle="Large" ItemClick="PostulantPrintBtn_ItemClick"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>
             </dxr:RibbonDefaultPageCategory>
@@ -66,6 +66,13 @@
                     <dxb:BarButtonItem Content="Programmes" Glyph="{dx:DXImage SvgImages/Outlook Inspired/CustomerQuickLocations.svg}" RibbonStyle="Large" ItemClick="BarButtonItem_ItemClick"/>
                 </dxr:RibbonPageGroup>
             </dxr:RibbonPage>
+            <dxr:RibbonPage x:Name="StatistiquesRibbonPage" Caption="Statistiques">
+                <dxr:RibbonPageGroup Caption="Statistiques">
+                    <dxb:BarButtonItem x:Name="DashBoard1Btn" Content="Tableau de bord 1" Glyph="{dx:DXImage SvgImages/Chart/Chart.svg}" RibbonStyle="Large" ItemClick="DashBoard1Btn_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="DashBoard2Btn" Content="Tableau de bord 2" Glyph="{dx:DXImage SvgImages/Chart/ChartType_Pie.svg}" RibbonStyle="Large" ItemClick="DashBoard2Btn_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="DashBoardPrintBtn" Content="Imprimer" Glyph="{dx:DXImage SvgImages/Dashboards/Print.svg}" RibbonStyle="Large" ItemClick="DashBoardPrintBtn_ItemClick"/>
+                </dxr:RibbonPageGroup>
+            </dxr:RibbonPage>
             <dxr:RibbonPage x:Name="ReglageRibbonPage" Caption="Réglages">
                 <dxr:RibbonPageGroup Caption="Apparance">
                     <dxr:RibbonGalleryBarItem Content="RibbonGalleryBarItem">
@@ -96,6 +103,9 @@
                 <Grid />
             </dx:DXTabItem>
             <dx:DXTabItem x:Name="ReglageTab">
+                <Grid/>
+            </dx:DXTabItem>
+            <dx:DXTabItem x:Name="StatistiquesTab">
                 <Grid/>
             </dx:DXTabItem>
         </dx:DXTabControl>

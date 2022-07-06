@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_Filtre_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="." />
+          <Parameter Name="database" Value="Filtre" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Postulant">
+        <Tables>
+          <Table Name="Postulant" X="30" Y="30" Width="125" Height="551" />
+          <Table Name="Programme" X="190" Y="290" Width="125" Height="111" />
+          <Table Name="Benificiere" X="330" Y="30" Width="125" Height="191" />
+          <Relation Type="Inner" Parent="Postulant" Nested="Programme">
+            <KeyColumn Parent="Id_programme" Nested="Id" />
+          </Relation>
+          <Relation Type="LeftOuter" Parent="Postulant" Nested="Benificiere">
+            <KeyColumn Parent="Id" Nested="Id_postulant" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="Postulant" Name="Id" />
+          <Column Table="Postulant" Name="Ref" />
+          <Column Table="Postulant" Name="Valide" />
+          <Column Table="Postulant" Name="Date_Demande" />
+          <Column Table="Postulant" Name="Id_programme" />
+          <Column Table="Postulant" Name="nom" />
+          <Column Table="Postulant" Name="Prenom" />
+          <Column Table="Postulant" Name="Sexe" />
+          <Column Table="Postulant" Name="Date_naissance" />
+          <Column Table="Postulant" Name="Sit_Familliale" />
+          <Column Table="Programme" Name="Id" Alias="Programme_Id" />
+          <Column Table="Programme" Name="DesignationProgramme" />
+          <Column Table="Benificiere" Name="Id" Alias="Benificiere_Id" />
+          <Column Table="Benificiere" Name="Num" />
+          <Column Table="Benificiere" Name="Id_postulant" />
+          <Column Table="Benificiere" Name="Date_Maj" />
+          <Column Table="Benificiere" Name="Id_Projet" />
+          <Column Table="Benificiere" Name="Adress" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="Postulant">
+            <Field Name="Id" Type="Int32" />
+            <Field Name="Ref" Type="String" />
+            <Field Name="Valide" Type="String" />
+            <Field Name="Date_Demande" Type="DateTime" />
+            <Field Name="Id_programme" Type="Int32" />
+            <Field Name="nom" Type="String" />
+            <Field Name="Prenom" Type="String" />
+            <Field Name="Sexe" Type="String" />
+            <Field Name="Date_naissance" Type="DateTime" />
+            <Field Name="Sit_Familliale" Type="String" />
+            <Field Name="Programme_Id" Type="Int32" />
+            <Field Name="DesignationProgramme" Type="String" />
+            <Field Name="Benificiere_Id" Type="Int32" />
+            <Field Name="Num" Type="String" />
+            <Field Name="Id_postulant" Type="Int32" />
+            <Field Name="Date_Maj" Type="DateTime" />
+            <Field Name="Id_Projet" Type="Int32" />
+            <Field Name="Adress" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dashboardSqlDataSource1" DataMember="Postulant">
+      <DataItems>
+        <Measure DataMember="Programme_Id" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="Date_Demande" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple>
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Chart ComponentName="chartDashboardItem1" Name="Postulants par sexe" DataSource="dashboardSqlDataSource1" DataMember="Postulant">
+      <DataItems>
+        <Dimension DataMember="Sexe" DefaultId="DataItem0" />
+        <Measure DataMember="Programme_Id" Name="Programme" SummaryType="Count" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem1" Name="Graph des Programmes" DataSource="dashboardSqlDataSource1" DataMember="Postulant" LabelContentType="ArgumentValueAndPercent">
+      <DataItems>
+        <Measure DataMember="Programme_Id" Name="Programme" SummaryType="Count" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" CustomFormatString="" />
+        </Measure>
+        <Dimension DataMember="DesignationProgramme" DefaultId="DataItem1" />
+        <Dimension DataMember="Valide" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Pie ComponentName="pieDashboardItem2" Name="Graph des Programmes" DataSource="dashboardSqlDataSource1" DataMember="Postulant" LabelContentType="ValueAndPercent">
+      <DataItems>
+        <Dimension DataMember="Benificiere_Id" DefaultId="DataItem0" />
+        <Dimension DataMember="Id_postulant" DefaultId="DataItem1" />
+        <Measure DataMember="Id" Name="Benificièrs" SummaryType="Count" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem2" />
+      </Values>
+    </Pie>
+  </Items>
+  <ColorScheme>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="Postulant" PaletteIndex="7">
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="DesignationProgramme" />
+          <Value Type="System.String" Value="LPA" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="Postulant" PaletteIndex="19">
+      <DimensionKeys>
+        <DimensionKey>
+          <Definition DataMember="DesignationProgramme" />
+          <Value Type="System.String" Value="LPP" />
+        </DimensionKey>
+      </DimensionKeys>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="17.023809523809526" />
+      <LayoutGroup Weight="82.976190476190482">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="38.560606060606062" />
+        <LayoutGroup Orientation="Vertical" Weight="61.439393939393938">
+          <LayoutItem DashboardItem="pieDashboardItem1" Weight="52.797704447632711" />
+          <LayoutItem DashboardItem="pieDashboardItem2" Weight="47.202295552367289" />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

@@ -330,7 +330,13 @@ namespace RibbonApplicationOpgi.Windows
                 dialog.Dispose();
             }*/
 
+
+
+
             //GridControl.View.ShowPrintPreview(this,"Nom du document Test", "Titre Test");
+
+
+            
             GridControl.View.Print();
         }
     }
