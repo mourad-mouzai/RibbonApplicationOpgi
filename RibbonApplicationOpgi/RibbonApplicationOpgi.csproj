@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\PostulantCRUD.cs" />
     <Compile Include="Model\Benificiere.cs">
       <DependentUpon>ModelFiltre.tt</DependentUpon>
     </Compile>
@@ -183,7 +184,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Controller\" />
   </ItemGroup>
   <ItemGroup>
