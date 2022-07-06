@@ -91,7 +91,7 @@ namespace RibbonApplicationOpgi.UserControls
             }
         }
 
-        /*private DataTable GetDataPostulant(IQueryable<Postulant> query)
+        private DataTable GetDataPostulant(IQueryable<Postulant> query)
         {
             DataTable dataTable = new DataTable();
 
@@ -102,13 +102,13 @@ namespace RibbonApplicationOpgi.UserControls
             {
                 var row = dataTable.NewRow();
                 row["Id"] = VARIABLE.Id;
-                row["Designation"] = VARIABLE.DesignationProgramme;
+               // row["Designation"] = VARIABLE.DesignationProgramme;
 
                 dataTable.Rows.Add(row);
             }
 
             return dataTable;
-        }*/
+        }
 
     }
 }
