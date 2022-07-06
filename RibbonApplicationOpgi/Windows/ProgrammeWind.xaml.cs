@@ -270,6 +270,7 @@ namespace RibbonApplicationOpgi.Windows
                     }
                     programme.DesignationProgramme = DesignationItem.Text;
 
+
                     FiltreEntities.SaveChanges();
 
                     ChargementGridControl();
